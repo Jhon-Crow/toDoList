@@ -33,6 +33,7 @@ export function stateService(action, toDoItemId, newDataObject){
             } else {
                 console.log('Item not found!')
             }
+            break;
         case 'DELETE':
             if (typeof toDoItemId === 'string') {
                 stateMap.delete(toDoItemId)
