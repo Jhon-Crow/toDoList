@@ -9,9 +9,11 @@ console.log('START', startArray)
 
 
 const stateMap = new Map();
-startArray.forEach(obj => {
-    stateMap.set(obj.id, obj)
-})
+if (startArray.length){
+    startArray.forEach(obj => {
+        stateMap.set(obj.id, obj)
+    })
+}
 
 console.log(stateMap)
 
@@ -45,7 +47,6 @@ console.log(startArray)
 //
 window.addEventListener('unload', () => {
     const endArray = Array.from(stateMap.values());
-
     if (startArray !== endArray){
         saveToLocalStorage(endArray)
     }
