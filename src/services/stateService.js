@@ -8,7 +8,7 @@ console.log('START', startArray)
 
 
 
-const stateMap = new Map();
+let stateMap = new Map();
 if (startArray.length){
     startArray.forEach(obj => {
         stateMap.set(obj.id, obj)
@@ -24,15 +24,14 @@ export function stateService(action, toDoItemId){
         case 'PATCH':
             break;
         case 'GET':
-            // stateMap.get(toDoItemId)
-            break;
+            return stateMap.get(toDoItemId)
         case 'DELETE':
-            break;
+            stateMap.delete(toDoItemId)
     }
 }
 
-console.log(startArray)
-
+// console.log(stateService('DELETE', 1722099638931))
+// console.log(stateService('GET', 1722099638931))
 
 // let endArray = [...startArray, {
 //     id: Date.now(),
