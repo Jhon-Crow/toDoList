@@ -1,11 +1,6 @@
 {
-	"extends": ["stylelint-config-standard"],
-	"plugins": [
-		"stylelint-rem-over-px",
-		"stylelint-selector-bem-pattern",
-		"stylelint-color-format",
-		"stylelint-plugin-stylus"
-	],
+	"extends": ["stylelint-config-standard", "stylelint-config-prettier"],
+	"plugins": ["stylelint-rem-over-px", "stylelint-selector-bem-pattern", "stylelint-color-format"],
 	"rules": {
 		"rem-over-px/rem-over-px": true,
 		"plugin/selector-bem-pattern": {
@@ -24,6 +19,6 @@
 		"color-format/format": {
 			"format": "rgb"
 		},
-		"stylus/number-leading-zero": "never"
+		"number-leading-zero": "never"
 	}
 }

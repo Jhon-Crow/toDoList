@@ -5,7 +5,12 @@ import eslintConfigPrettier from 'eslint-config-prettier';
 import unusedImports from 'eslint-plugin-unused-imports';
 
 export default [
-	{ languageOptions: { globals: globals.browser } },
+	{
+		languageOptions: { globals: globals.browser },
+	},
+	{
+		ignores: ['node_modules/*'],
+	},
 	pluginJs.configs.recommended,
 	eslintPluginPrettierRecommended,
 	eslintConfigPrettier,
