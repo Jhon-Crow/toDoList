@@ -3,11 +3,6 @@ import {getFromLocalStorage} from "../helpers/getFromLocalStorage.js";
 
 const startArray = getFromLocalStorage() || []
 
-console.log('START', startArray)
-
-
-
-
 let stateMap = new Map();
 if (startArray.length){
     startArray.forEach(obj => {
@@ -15,46 +10,37 @@ if (startArray.length){
     })
 }
 
-console.log(stateMap)
-
-export function stateService(action, toDoItemId){
+export function stateService(action, toDoItemId, newDataObject){
     switch (action){
         case 'SET':
+            if (typeof toDoItemId === 'string'){
+                stateMap.set(toDoItemId, {...newDataObject, id: toDoItemId})
+            } else {
+                console.log('incorrect ID!')
+            }
             break;
         case 'PATCH':
+            if (stateMap.get(toDoItemId)){
+                const oldObject = stateMap.get(toDoItemId)
+                stateMap.set(toDoItemId, {...oldObject, id: toDoItemId, ...newDataObject})
+            } else {
+                console.log('Item Not Exists')
+            }
             break;
         case 'GET':
             return stateMap.get(toDoItemId)
         case 'DELETE':
-            stateMap.delete(toDoItemId)
+            if (typeof toDoItemId === 'string') {
+                stateMap.delete(toDoItemId)
+            } else {
+                console.log('incorrect ID!')
+            }
     }
 }
 
-// console.log(stateService('DELETE', 1722099638931))
-// console.log(stateService('GET', 1722099638931))
-
-// let endArray = [...startArray, {
-//     id: Date.now(),
-//     deadline: 270724,
-//     text: 'string',
-//     isDone: undefined
-// }]
-
-
-
-// console.log(endArray)
-//
 window.addEventListener('unload', () => {
     const endArray = Array.from(stateMap.values());
     if (startArray !== endArray){
         saveToLocalStorage(endArray)
     }
 })
-
-
-
-
-
-
-
-console.log('stateService.js');
