@@ -9,8 +9,13 @@
 		"lint:js:fix": "eslint ./src/**/*.js --fix",
 		"lint:css": "npx stylelint ./src/**/*.css",
 		"lint:css:fix": "npx stylelint ./src/**/*.css --fix",
+<<<<<<< HEAD
 		"prettier": "npx prettier . --check",
 		"prettier:fix": "npx prettier . --write",
+=======
+		"prettier": "npx prettier ../Рабочий стол/Новая папка --check",
+		"prettier:fix": "npx prettier ../Рабочий стол/Новая папка --write",
+>>>>>>> 2e6e895 (add helpful plugins from dev branch)
 		"prepare": "husky",
 		"storybook": "storybook dev -p 6006 -c ./config/storybook",
 		"build-storybook": "storybook build -c ./config/storybook"
