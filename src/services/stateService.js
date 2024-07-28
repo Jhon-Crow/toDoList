@@ -10,7 +10,7 @@ if (startArray.length){
     })
 }
 
-export function stateService(action, toDoItemId, newDataObject){
+function stateService(action, toDoItemId, newDataObject){
     switch (action){
         case 'SET':
             if (typeof toDoItemId === 'string' && !stateToolkit.getFromService(toDoItemId)){
@@ -24,14 +24,14 @@ export function stateService(action, toDoItemId, newDataObject){
                 const oldObject = stateMap.get(toDoItemId)
                 stateMap.set(toDoItemId, {...oldObject, id: toDoItemId, ...newDataObject})
             } else {
-                console.log('Item Not Exists')
+                console.log('Item Not Found!')
             }
             break;
         case 'GET':
             if (stateMap.get(toDoItemId)){
                 return stateMap.get(toDoItemId)
             } else {
-                console.log('Item not found!')
+                console.log('Item Not Found!')
             }
             break;
         case 'DELETE':
