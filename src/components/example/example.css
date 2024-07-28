@@ -1,0 +1,30 @@
+.example {
+	font-family: sans-serif;
+}
+
+.example_small {
+	font-size: .5rem;
+	font-weight: 200;
+}
+
+.example_medium {
+	font-size: 1rem;
+	font-weight: 400;
+}
+
+.example_large {
+	font-size: 1.5rem;
+	font-weight: 700;
+}
+
+.example_red {
+	color: rgb(255 0 0);
+}
+
+.example_black {
+	color: rgb(0 0 0);
+}
+
+.example_blue {
+	color: rgb(0 0 255);
+}
