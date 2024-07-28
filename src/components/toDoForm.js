@@ -1,6 +1,6 @@
 import {stateToolkit} from '../services/stateService.js'
 
-const root = document.getElementById('root')
+const app = document.getElementById('app')
 class ToDoItem {
     constructor(id, deadline, text, isDone) {
         this.id = String(id);
@@ -25,12 +25,12 @@ class ToDoInput {
 const toDoTextInput = new ToDoInput('toDoInputText', 'text', 'task text');
 const toDoDataInput = new ToDoInput('toDoInputData', 'datetime-local');
 
-root.appendChild(toDoTextInput.getElement());
-root.appendChild(toDoDataInput.getElement());
+app.appendChild(toDoTextInput.getElement());
+app.appendChild(toDoDataInput.getElement());
 
 const button = document.createElement('button');
 button.textContent = 'Add ToDo';
-root.appendChild(button);
+app.appendChild(button);
 
 button.addEventListener('click', () => {
     const text = toDoTextInput.getElement().value;
