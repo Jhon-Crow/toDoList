@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&family=Kanit:wght@500&display=swap');
+
+:root {
+    --font-size-regular: 1rem;
+    --font-size-large: 1.625rem;
+    --font-size-medium: 1.25rem;
+    --font-family-kanit: 'Kanit',sans-serif;
+    --font-family-inter: 'Inter', sans-serif;
+    --font-large: var(--font-size-large) var(--font-family-kanit);
+    --font-regular: var(--font-size-regular) var(--font-family-kanit);
+    --font-medium: var(--font-size-medium) var(--font-family-kanit);
+    --font-input: var(--font-size-regular) var(--font-family-inter);
+}

@@ -1,0 +1,9 @@
+@import "./reset.css";
+@import "./globals/globals.css";
+@import "./themes/dark.css";
+@import "./themes/light.css";
+
+body {
+    font: var(--font-regular);
+    color: var(--primary-color);
+}
