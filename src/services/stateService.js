@@ -34,6 +34,13 @@ function stateService(action, toDoItemId, newDataObject){
                 console.log('Item Not Found!')
             }
             break;
+        case 'GET_ALL':
+            if (stateMap.size){
+                return Array.from(stateMap.values());
+            } else {
+                console.log('State is Empty!')
+            }
+            break;
         case 'DELETE':
             if (typeof toDoItemId === 'string') {
                 stateMap.delete(toDoItemId)
