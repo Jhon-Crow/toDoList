@@ -1,3 +1,6 @@
+import {stateToolkit} from '../services/stateService.js'
+
+const root = document.getElementById('root')
 class ToDoItem {
     constructor(id, deadline, text, isDone) {
         this.id = String(id);
@@ -22,21 +25,20 @@ class ToDoInput {
 const toDoTextInput = new ToDoInput('toDoInputText', 'text', 'task text');
 const toDoDataInput = new ToDoInput('toDoInputData', 'datetime-local');
 
-document.body.appendChild(toDoTextInput.getElement());
-document.body.appendChild(toDoDataInput.getElement());
+root.appendChild(toDoTextInput.getElement());
+root.appendChild(toDoDataInput.getElement());
 
 const button = document.createElement('button');
 button.textContent = 'Add ToDo';
-document.body.appendChild(button);
+root.appendChild(button);
 
 button.addEventListener('click', () => {
     const text = toDoTextInput.getElement().value;
     const deadline = new Date(toDoDataInput.getElement().value).getTime();
-    if (text && deadline) {
-        const newToDo = new ToDoItem(Date.now(), deadline, text, undefined);
+    if (text && (deadline > Date.now())) {
+        const newToDo = new ToDoItem(crypto.randomUUID(), deadline, text, undefined);
 
-        console.log(newToDo);
-        stateService.setToService(newToDo.id, newToDo);
+        stateToolkit.setToService(newToDo.id, newToDo);
     } else {
         alert('empty input')
     }
