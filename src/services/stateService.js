@@ -34,6 +34,13 @@ function stateService(action, toDoItemId, newDataObject){
                 console.log('Item Not Found!')
             }
             break;
+        case 'GET_ALL':
+            if (stateMap.size){
+                return Array.from(stateMap.values());
+            } else {
+                console.log('State is Empty!')
+            }
+            break;
         case 'DELETE':
             if (typeof toDoItemId === 'string') {
                 stateMap.delete(toDoItemId)
@@ -55,6 +62,10 @@ stateToolkit.__proto__.patchToService = function(toDoItemId, newDataObject) {
 
 stateToolkit.__proto__.getFromService = function(toDoItemId) {
     return stateService('GET', toDoItemId);
+};
+
+stateToolkit.__proto__.getAllFromService = function() {
+    return stateService('GET_ALL');
 };
 
 stateToolkit.__proto__.deleteFromService = function(toDoItemId) {
