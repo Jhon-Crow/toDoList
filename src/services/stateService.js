@@ -41,6 +41,13 @@ function stateService(action, toDoItemId, newDataObject){
                 console.log('State is Empty!')
             }
             break;
+        case 'GET_ALL_KEYS':
+            if (stateMap.size){
+                return Array.from(stateMap.keys());
+            } else {
+                console.log('State is Empty!')
+            }
+            break;
         case 'DELETE':
             if (typeof toDoItemId === 'string') {
                 stateMap.delete(toDoItemId)
@@ -48,7 +55,7 @@ function stateService(action, toDoItemId, newDataObject){
                 console.log('incorrect ID!')
             }
             break;
-        default: return null
+        default: return null;
     }
 }
 
@@ -68,6 +75,10 @@ stateToolkit.__proto__.getFromService = function(toDoItemId) {
 
 stateToolkit.__proto__.getAllFromService = function() {
     return stateService('GET_ALL');
+};
+
+stateToolkit.__proto__.getAllKeysFromService = function() {
+    return stateService('GET_ALL_KEYS');
 };
 
 stateToolkit.__proto__.deleteFromService = function(toDoItemId) {
