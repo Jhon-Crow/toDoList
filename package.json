@@ -1,12 +1,60 @@
 {
-  "name": "todolist",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+	"name": "todolist",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"type": "module",
+	"scripts": {
+		"lint:js": "eslint ./src/**/*.js ",
+		"lint:js:fix": "eslint ./src/**/*.js --fix",
+		"lint:css": "npx stylelint ./src/**/*.css",
+		"lint:css:fix": "npx stylelint ./src/**/*.css --fix",
+		"prettier": "npx prettier ../Рабочий стол/Новая папка --check",
+		"prettier:fix": "npx prettier ../Рабочий стол/Новая папка --write",
+		"prepare": "husky",
+		"storybook": "storybook dev -p 6006 -c ./config/storybook",
+		"build-storybook": "storybook build -c ./config/storybook"
+	},
+	"lint-staged": {
+		"**/*.js": "eslint",
+		"**/*.css": "npx stylelint",
+		"*": "prettier --list-different"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"devDependencies": {
+		"@chromatic-com/storybook": "^1.6.1",
+		"@eslint/js": "^9.8.0",
+		"@storybook/addon-essentials": "^8.2.6",
+		"@storybook/addon-links": "^8.2.6",
+		"@storybook/addon-webpack5-compiler-swc": "^1.0.4",
+		"@storybook/blocks": "^8.2.6",
+		"@storybook/test": "^8.2.6",
+		"@storybook/web-components": "^8.2.6",
+		"@storybook/web-components-webpack5": "^8.2.6",
+		"eslint": "^9.8.0",
+		"eslint-config-prettier": "^9.1.0",
+		"eslint-plugin-prettier": "^5.2.1",
+		"eslint-plugin-storybook": "^0.8.0",
+		"eslint-plugin-unused-imports": "^4.0.1",
+		"globals": "^15.8.0",
+		"husky": "^9.1.3",
+		"lint-staged": "^15.2.7",
+		"lit": "^3.1.4",
+		"prettier": "^3.3.3",
+		"prettier-plugin-stylus": "^0.1.0",
+		"storybook": "^8.2.6",
+		"stylelint": "^14.8.4",
+		"stylelint-color-format": "^1.1.0",
+		"stylelint-config-prettier": "^9.0.5",
+		"stylelint-config-standard": "^25.0.0",
+		"stylelint-rem-over-px": "^1.0.1",
+		"stylelint-selector-bem-pattern": "^3.0.0"
+	},
+	"eslintConfig": {
+		"extends": [
+			"plugin:storybook/recommended"
+		]
+	}
 }
