@@ -1,0 +1,24 @@
+{
+	"extends": ["stylelint-config-standard", "stylelint-config-prettier"],
+	"plugins": ["stylelint-rem-over-px", "stylelint-selector-bem-pattern", "stylelint-color-format"],
+	"rules": {
+		"rem-over-px/rem-over-px": true,
+		"plugin/selector-bem-pattern": {
+			"componentName": "[a-z]+",
+			"componentSelectors": {
+				"initial": "^\\.{componentName}(?:__[a-z]+)?$"
+			}
+		},
+		"selector-class-pattern": [
+			"^([a-z][a-z0-9]*)(_[a-z0-9]+)*((__([a-z][a-z0-9]*)(_[a-z0-9]+)*)?(_([a-z][a-z0-9]*)(_[a-z0-9]+)*)?)$",
+			{
+				"message": "Соблюдай БЭМ (block, block__element, block_modification, block__element_modification)",
+				"resolveNestedSelectors": true
+			}
+		],
+		"color-format/format": {
+			"format": "rgb"
+		},
+		"number-leading-zero": "never"
+	}
+}
