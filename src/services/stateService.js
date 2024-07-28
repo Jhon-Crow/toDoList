@@ -80,7 +80,7 @@ stateToolkit.__proto__.getAllFromService = function() {
 stateToolkit.__proto__.getAllKeysFromService = function() {
     return stateService('GET_ALL_KEYS');
 };
-console.log(stateToolkit.getAllKeysFromService())
+
 stateToolkit.__proto__.deleteFromService = function(toDoItemId) {
     stateService('DELETE', toDoItemId);
 };
