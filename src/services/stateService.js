@@ -47,6 +47,8 @@ function stateService(action, toDoItemId, newDataObject){
             } else {
                 console.log('incorrect ID!')
             }
+            break;
+        default: return null
     }
 }
 
