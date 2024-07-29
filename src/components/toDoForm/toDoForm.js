@@ -8,10 +8,26 @@ class ToDoItem {
 		this.isDone = isDone;
 	}
 }
-
-class toDoForm extends HTMLElement {
+// форма вызывает ререндер пэдж после клика
+export class toDoForm extends HTMLElement {
 	connectedCallback() {
 		this.render();
+		const button = document.getElementById('addToDoButton');
+		const textInput = document.getElementById('toDoInputText');
+		const dateInput = document.getElementById('toDoInputData');
+
+		button.addEventListener('click', () => {
+			const text = textInput.value;
+			const deadline = new Date(dateInput.value).getTime();
+			if (text && deadline > Date.now()) {
+				const newToDo = new ToDoItem(crypto.randomUUID(), deadline, text, undefined);
+				stateToolkit.setToService(newToDo.id, newToDo);
+				// const elem = document.body.firstElementChild
+				// elem.render()
+			} else {
+				alert('incorrect input');
+			}
+		});
 	}
 	render() {
 		this.innerHTML = `
@@ -21,19 +37,3 @@ class toDoForm extends HTMLElement {
 		`;
 	}
 }
-customElements.define('to-do-form', toDoForm);
-
-const button = document.getElementById('addToDoButton');
-const textInput = document.getElementById('toDoInputText');
-const dateInput = document.getElementById('toDoInputData');
-
-button.addEventListener('click', () => {
-	const text = textInput.value;
-	const deadline = new Date(dateInput.value).getTime();
-	if (text && deadline > Date.now()) {
-		const newToDo = new ToDoItem(crypto.randomUUID(), deadline, text, undefined);
-		stateToolkit.setToService(newToDo.id, newToDo);
-	} else {
-		alert('incorrect input');
-	}
-});
