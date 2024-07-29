@@ -1,4 +1,4 @@
-import {stateToolkit} from '../services/stateService.js'
+// import {stateToolkit} from '../services/stateService.js'
 
 const app = document.getElementById('app')
 class ToDoItem {
@@ -16,6 +16,7 @@ class ToDoInput {
         this.inputElement.id = String(id);
         this.inputElement.type = type;
         this.inputElement.placeholder = placeholder || '';
+        this.inputElement.maxLength = 20;
     }
     getElement() {
         return this.inputElement;
