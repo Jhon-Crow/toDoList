@@ -1,0 +1,21 @@
+.button {
+    cursor: pointer;
+    border-radius: .1875rem;
+    border: 1px solid var(--accent-color);
+    color: white;
+    background:  var(--accent-color);
+    font: var(--font-large);
+    padding: .4rem;
+}
+
+.theme-button {
+    border-radius: .4rem;
+}
+
+.light-theme-icon {
+    background-repeat: no-repeat;
+    background-image: var(--theme-switcher-svg);
+    background-size: 2.375rem;
+    width: 2.375rem;
+    height: 2.375rem;
+}

@@ -1,3 +1,8 @@
+import { themeSwitcher } from './components/themeSwitcher/themeSwitcher.js';
+
+customElements.define(themeSwitcher.name, themeSwitcher);
+
+// document.body.innerHTML = `<theme-switcher-component></theme-switcher-component>`
 import { toDoList } from './components/toDoList/toDoList.js';
 import { TimeFormattedComponent } from './components/TimeFormatted/TimeFormattedComponent.js';
 import { TimerComponent } from './components/Timer/TimerComponent.js';
