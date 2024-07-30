@@ -6,7 +6,7 @@ export class toDoPage extends HTMLElement {
 		this.render();
 	}
 	render() {
-		// this.innerHTML = `<to-do-form></to-do-form>`
+		this.innerHTML = ``;
 		const data = stateToolkit.getAllFromService();
 		if (data) {
 			data.map((item) => {
