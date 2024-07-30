@@ -10,55 +10,56 @@ if (startArray.length) {
 	});
 }
 
-function stateService(action, toDoItemId, newDataObject){
-    switch (action){
-        case 'SET':
-            if (typeof toDoItemId === 'string'){
-                stateMap.set(toDoItemId, {...newDataObject, id: toDoItemId})
-            } else {
-                console.log('incorrect ID!')
-            }
-            break;
-        case 'PATCH':
-            if (stateMap.get(toDoItemId)){
-                const oldObject = stateMap.get(toDoItemId)
-                stateMap.set(toDoItemId, {...oldObject, id: toDoItemId, ...newDataObject})
-            } else {
-                console.log('Item Not Found!')
-            }
-            break;
-        case 'GET':
-            if (stateMap.get(toDoItemId)){
-                return stateMap.get(toDoItemId)
-            } else {
-                console.log('Item Not Found!')
-            }
-            break;
-        case 'GET_ALL':
-            if (stateMap.size){
-                return Array.from(stateMap.values());
-            } else {
-                console.log('State is Empty!')
-            }
-            break;
-        case 'GET_ALL_KEYS':
-            if (stateMap.size){
-                return Array.from(stateMap.keys());
-            } else {
-                console.log('State is Empty!')
-            }
-            break;
-        case 'DELETE':
-            if (typeof toDoItemId === 'string') {
-                stateMap.delete(toDoItemId)
-            } else {
-                console.log('incorrect ID!')
-            }
-            break;
-        case 'DELETE_ALL':
-               return stateMap = []
-        default: return null;
-    }
+function stateService(action, toDoItemId, newDataObject) {
+	switch (action) {
+		case 'SET':
+			if (typeof toDoItemId === 'string') {
+				stateMap.set(toDoItemId, { ...newDataObject, id: toDoItemId });
+			} else {
+				console.log('incorrect ID!');
+			}
+			break;
+		case 'PATCH':
+			if (stateMap.get(toDoItemId)) {
+				const oldObject = stateMap.get(toDoItemId);
+				stateMap.set(toDoItemId, { ...oldObject, id: toDoItemId, ...newDataObject });
+			} else {
+				console.log('Item Not Found!');
+			}
+			break;
+		case 'GET':
+			if (stateMap.get(toDoItemId)) {
+				return stateMap.get(toDoItemId);
+			} else {
+				console.log('Item Not Found!');
+			}
+			break;
+		case 'GET_ALL':
+			if (stateMap.size) {
+				return Array.from(stateMap.values());
+			} else {
+				console.log('State is Empty!');
+			}
+			break;
+		case 'GET_ALL_KEYS':
+			if (stateMap.size) {
+				return Array.from(stateMap.keys());
+			} else {
+				console.log('State is Empty!');
+			}
+			break;
+		case 'DELETE':
+			if (typeof toDoItemId === 'string') {
+				stateMap.delete(toDoItemId);
+			} else {
+				console.log('incorrect ID!');
+			}
+			break;
+		case 'DELETE_ALL':
+			return (stateMap = []);
+		default:
+			return null;
+	}
 }
 
 export const stateToolkit = {};

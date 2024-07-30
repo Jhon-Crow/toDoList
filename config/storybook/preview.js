@@ -13,19 +13,11 @@ const preview = {
 			},
 		},
 	},
-	decorators: [
-		styleDecorator,
-		stateDecorator(),
-	]
+	decorators: [styleDecorator, stateDecorator()],
 };
 
-[
-	TimeFormattedComponent,
-	TimerComponent,
-	ToDoCardComponent,
-].map((component) => {
-	customElements.define(component.name, component)
-})
+[TimeFormattedComponent, TimerComponent, ToDoCardComponent].map((component) => {
+	customElements.define(component.name, component);
+});
 
 export default preview;
-

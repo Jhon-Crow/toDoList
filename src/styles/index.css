@@ -4,6 +4,7 @@
 @import url("./themes/light.css");
 
 body {
+    background-color: var(--bg-color);
     font: var(--font-regular);
     color: var(--primary-color);
 }

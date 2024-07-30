@@ -1,8 +1,7 @@
-import trashBtn from "../../assets/icons/trash-icon.svg";
+// import trashBtn from "../../assets/icons/trash-icon.svg";
 
-
-export const getStyles = (id) => {
-    return `
+export const getStyles = () => {
+	return `
     <style>
     :host {
         display: flex;
@@ -84,8 +83,6 @@ export const getStyles = (id) => {
             right: .5rem;
             position: absolute;
             background-color: var(--primary-color);
-            -webkit-mask: url(${trashBtn}) no-repeat center;
-            mask: url(${trashBtn}) no-repeat center;
             transition: background-color .2s ease;
             cursor: var(--cursor-pointer)
         }
@@ -116,5 +113,5 @@ export const getStyles = (id) => {
             color: var(--delete-color);
         }
     </style>
-    `
-}
+    `;
+};

@@ -1,6 +1,9 @@
 import { stateToolkit } from '../../services/stateService.js';
 
 export class toDoList extends HTMLElement {
+	static get name() {
+		return 'to-do-list-component';
+	}
 	connectedCallback() {
 		this.render();
 	}
@@ -9,7 +12,7 @@ export class toDoList extends HTMLElement {
 		const data = stateToolkit.getAllKeysFromService();
 		if (data) {
 			data.map((key) => {
-				this.innerHTML += `<toDoCard>${key}</toDoCard>`;
+				this.innerHTML += `<to-do-card-component id="${key}"></to-do-card-component>`;
 			});
 		} else {
 			this.innerHTML += `<div class="empty-light"></div>
