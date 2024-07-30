@@ -1,4 +1,5 @@
 import { stateToolkit } from '../../services/stateService.js';
+import { ELEM_RERENDER_ON_FORM_BUTTON_CLICK } from '../../consts/consts.js';
 
 class ToDoItem {
 	constructor(id, deadline, text, isDone) {
@@ -22,7 +23,7 @@ export class toDoForm extends HTMLElement {
 			if (text && deadline > Date.now()) {
 				const newToDo = new ToDoItem(crypto.randomUUID(), deadline, text, undefined);
 				stateToolkit.setToService(newToDo.id, newToDo);
-				const elem = document.getElementById('to-do-page');
+				const elem = document.getElementById(ELEM_RERENDER_ON_FORM_BUTTON_CLICK);
 				elem.render();
 			} else {
 				alert('incorrect input');
