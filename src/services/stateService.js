@@ -3,7 +3,7 @@ import {getFromLocalStorage} from "../helpers/getFromLocalStorage.js";
 
 const startArray = getFromLocalStorage() || []
 
-const stateMap = new Map();
+let stateMap = new Map();
 if (startArray.length){
     startArray.forEach(obj => {
         stateMap.set(obj.id, obj)
@@ -55,6 +55,8 @@ function stateService(action, toDoItemId, newDataObject){
                 console.log('incorrect ID!')
             }
             break;
+        case 'DELETE_ALL':
+               return stateMap = []
         default: return null;
     }
 }
@@ -83,6 +85,10 @@ stateToolkit.__proto__.getAllKeysFromService = function() {
 
 stateToolkit.__proto__.deleteFromService = function(toDoItemId) {
     stateService('DELETE', toDoItemId);
+};
+
+stateToolkit.__proto__.deleteAllFromService = function() {
+    stateService('DELETE_ALL');
 };
 
 window.addEventListener('unload', () => {
