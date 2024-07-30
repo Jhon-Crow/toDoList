@@ -11,6 +11,10 @@ export class toDoList extends HTMLElement {
 			data.map((item) => {
 				this.innerHTML += `<toDoCard>${item.id}</toDoCard>`;
 			});
+		} else {
+			this.innerHTML += `<div class="empty-light"></div>
+								<h1 class="empty-title">Empty...</h1>
+`;
 		}
 	}
 }

@@ -4,3 +4,16 @@
     margin-top: 2rem;
     padding: 0 30vw;
 }
+
+.empty-light {
+    margin-top: 4rem;
+    height: 20rem;
+    background-image: url("./../../assets/images/empty-list-light.png");
+    background-repeat: no-repeat;
+    background-size: 24rem;
+}
+
+.empty-title {
+    text-align: left;
+    padding-left: 8rem;
+}
