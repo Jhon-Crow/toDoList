@@ -24,7 +24,6 @@ export class toDoForm extends HTMLElement {
 				const newToDo = new ToDoItem(crypto.randomUUID(), deadline, text, undefined);
 				stateToolkit.setToService(newToDo.id, newToDo);
 				const elem = document.getElementById('to-do-page');
-				console.log(elem);
 				elem.render();
 			} else {
 				alert('incorrect input');
