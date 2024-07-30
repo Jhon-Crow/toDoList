@@ -1,7 +1,7 @@
-@import "./reset.css";
-@import "./globals/globals.css";
-@import "./themes/dark.css";
-@import "./themes/light.css";
+@import url("./reset.css");
+@import url("./globals/globals.css");
+@import url("./themes/dark.css");
+@import url("./themes/light.css");
 
 body {
     font: var(--font-regular);

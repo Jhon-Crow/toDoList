@@ -9,5 +9,5 @@
     --selector-color: rgb(247 247 247);
     --delete-color: rgb(229 0 0);
     --empty-list-image: url("../../assets/images/empty-list-dark.png");
-    --cursor-pointer: url('../../assets/icons/cursor-dark-theme.svg');
+    --cursor-pointer: url('../../assets/icons/cursor-dark-theme.svg'), pointer;
 }
