@@ -6,10 +6,10 @@ export class toDoList extends HTMLElement {
 	}
 	render() {
 		this.innerHTML = ``;
-		const data = stateToolkit.getAllFromService();
+		const data = stateToolkit.getAllKeysFromService();
 		if (data) {
-			data.map((item) => {
-				this.innerHTML += `<toDoCard>${item.id}</toDoCard>`;
+			data.map((key) => {
+				this.innerHTML += `<toDoCard>${key}</toDoCard>`;
 			});
 		} else {
 			this.innerHTML += `<div class="empty-light"></div>
