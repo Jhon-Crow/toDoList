@@ -32,7 +32,7 @@ export class toDoForm extends HTMLElement {
 	render() {
 		this.innerHTML = `
 			<input class="input" id="toDoInputText" type="text" placeholder="Need to do..." maxlength="20" />
-			<input id="toDoInputData" type="datetime-local" />
+			<input class="button" id="to-do-data-input" type="datetime-local" />
 			<button class="button" id="addToDoButton">Add ToDo</button>
 		`;
 	}
