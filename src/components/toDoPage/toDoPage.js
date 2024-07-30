@@ -8,9 +8,11 @@ export class toDoPage extends HTMLElement {
 	render() {
 		// this.innerHTML = `<to-do-form></to-do-form>`
 		const data = stateToolkit.getAllFromService();
-		data.map((item) => {
-			this.innerHTML += `<div>${item.id}</div>`;
-		});
+		if (data) {
+			data.map((item) => {
+				this.innerHTML += `<div>${item.id}</div>`;
+			});
+		}
 	}
 }
 // в index.js
