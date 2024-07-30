@@ -1,4 +1,4 @@
-import { stateToolkit } from '../../services/stateService.js';
+import { ELEM_RERENDER_ON_FORM_BUTTON_CLICK } from '../../consts/consts.js';
 
 export class toDoPage extends HTMLElement {
 	connectedCallback() {
@@ -6,11 +6,14 @@ export class toDoPage extends HTMLElement {
 	}
 	render() {
 		this.innerHTML = ``;
-		const data = stateToolkit.getAllFromService();
-		if (data) {
-			data.map((item) => {
-				this.innerHTML += `<div>${item.id}</div>`;
-			});
-		}
+		this.innerHTML += `
+			<to-do-form></to-do-form>
+			<to-do-list id=${ELEM_RERENDER_ON_FORM_BUTTON_CLICK}></to-do-list>
+`;
+		// if (data) {
+		// 	data.map((item) => {
+		// 		this.innerHTML += `<div>${item.id}</div>`;
+		// 	});
+		// }
 	}
 }
