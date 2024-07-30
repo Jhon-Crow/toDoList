@@ -10,7 +10,7 @@
 			}
 		},
 		"selector-class-pattern": [
-			"^([a-z][a-z0-9]*)(_[a-z0-9]+)*((__([a-z][a-z0-9]*)(_[a-z0-9]+)*)?(_([a-z][a-z0-9]*)(_[a-z0-9]+)*)?)$",
+			"^([a-z][a-z0-9-]*)(_[a-z0-9-]+)*((__([a-z][a-z0-9-]*)(_[a-z0-9-]+)*)?(_([a-z][a-z0-9-]*)(_[a-z0-9-]+)*)?)$",
 			{
 				"message": "Соблюдай БЭМ (block, block__element, block_modification, block__element_modification)",
 				"resolveNestedSelectors": true
