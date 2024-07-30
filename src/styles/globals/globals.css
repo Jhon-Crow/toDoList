@@ -10,4 +10,5 @@
     --font-regular: var(--font-size-regular) var(--font-family-kanit);
     --font-medium: var(--font-size-medium) var(--font-family-kanit);
     --font-input: var(--font-size-regular) var(--font-family-inter);
+    --button-radius: .3125rem;
 }

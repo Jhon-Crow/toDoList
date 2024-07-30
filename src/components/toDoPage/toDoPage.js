@@ -13,8 +13,7 @@ export class toDoPage extends HTMLElement {
 			<div class="to-do-page__wrapper">
 				<to-do-form-component></to-do-form-component>
 				<to-do-list-component id=${ELEM_RERENDER_ON_FORM_BUTTON_CLICK}></to-do-list-component>
-			</div>
-			
+			</div>			
 `;
 	}
 }

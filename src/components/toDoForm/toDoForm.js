@@ -35,9 +35,12 @@ export class toDoForm extends HTMLElement {
 	}
 	render() {
 		this.innerHTML = `
+		<div class="to-do-form__wrapper">
 			<input class="input" id="toDoInputText" type="text" placeholder="Need to do..." maxlength="20" />
 			<input class="button" id="to-do-data-input" type="datetime-local" />
 			<button class="button" id="addToDoButton">Add ToDo</button>
-		`;
+			<theme-switcher-component></theme-switcher-component>
+		</div>		
+`;
 	}
 }

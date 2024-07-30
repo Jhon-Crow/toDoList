@@ -11,19 +11,21 @@ export class themeSwitcher extends HTMLElement {
 <style>
                         :host {
                             display: inline-block;
+                            height: 2.375rem;
                         }
                         .theme-toggle-button {
                         	line-height: 0;
-                            border-radius: .4rem;
+                            border-radius: var(--button-radius);
                             cursor: pointer;
                             border: 1px solid var(--accent-color);
                             color: white;
                             background:  var(--accent-color);
                             font: var(--font-large);
-                            padding: .4rem;
                             height: 2.375rem;
                             width: 2.375rem;
+                            padding: 0.125rem;
                         }
+                        
                         .theme-icon {
                             background-repeat: no-repeat;
                             background-image: var(--theme-switcher-svg);
