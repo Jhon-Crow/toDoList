@@ -14,16 +14,18 @@ export class toDoForm extends HTMLElement {
 		this.render();
 		const button = document.getElementById('addToDoButton');
 		const textInput = document.getElementById('toDoInputText');
-		const dateInput = document.getElementById('toDoInputData');
+		const dateInput = document.getElementById('to-do-data-input');
 
 		button.addEventListener('click', () => {
 			const text = textInput.value;
 			const deadline = new Date(dateInput.value).getTime();
+
 			if (text && deadline > Date.now()) {
 				const newToDo = new ToDoItem(crypto.randomUUID(), deadline, text, undefined);
 				stateToolkit.setToService(newToDo.id, newToDo);
-				// const elem = document.body.firstElementChild
-				// elem.render()
+				const elem = document.getElementById('to-do-page');
+				console.log(elem);
+				elem.render();
 			} else {
 				alert('incorrect input');
 			}
