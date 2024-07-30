@@ -1,9 +1,9 @@
 .button {
     cursor: pointer;
     border-radius: .1875rem;
-    border: 1px solid rgb(108 99 255);
+    border: 1px solid var(--accent-color);
     color: white;
-    background:  rgb(108 99 255);
+    background:  var(--accent-color);
     font: var(--font-large);
     padding: .4rem;
     box-sizing: content-box;
