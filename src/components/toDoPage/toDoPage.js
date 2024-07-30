@@ -1,6 +1,5 @@
 import { stateToolkit } from '../../services/stateService.js';
 
-// console.log(data)
 export class toDoPage extends HTMLElement {
 	connectedCallback() {
 		this.render();
@@ -15,6 +14,3 @@ export class toDoPage extends HTMLElement {
 		}
 	}
 }
-// в index.js
-// customElements.define('to-do-page', toDoPage);
-//ререндер при разнице между стэйтом и локал стэйтом
