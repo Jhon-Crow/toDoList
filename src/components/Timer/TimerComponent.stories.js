@@ -1,8 +1,20 @@
+import { stateDecorator } from '../../lib/storybook/stateDecorator/stateDecorator.js';
+
 export default {
 	title: 'TimerComponent',
 	render: (args) => {
-		return `<timer-component deadline=${args.deadline} />`;
+		return `<timer-component deadline=${args.deadline} id=${args.id} />`;
 	},
+	args: {
+		id: '1',
+	},
+	decorators: [
+		stateDecorator([
+			{
+				id: '1',
+			},
+		]),
+	],
 };
 
 export const OneMinuteLeft = {

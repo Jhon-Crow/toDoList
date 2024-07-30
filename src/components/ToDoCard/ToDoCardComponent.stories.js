@@ -18,7 +18,7 @@ export const Done = {
 	args: {
 		id: '1',
 	},
-	decorators: [stateDecorator([{ id: '1', text: 'TODODone', deadline: undefined, isDone: true }])],
+	decorators: [stateDecorator([{ id: '1', text: 'TODODone', deadline: Date.now() + 100000000000000, isDone: true }])],
 };
 
 export const Failed = {

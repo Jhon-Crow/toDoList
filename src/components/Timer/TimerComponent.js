@@ -27,12 +27,12 @@ export class TimerComponent extends HTMLElement {
 
 	#ATTRIBUTES_MAPPING = new Map([
 		[timerAttributes.DEADLINE, this.#setDeadline.bind(this)],
-		[timerAttributes.ID, this.#id],
+		[timerAttributes.ID, this.#setId.bind(this)],
 	]);
 
 	#setDeadline(_, newDeadline) {
 		this.#deadline = newDeadline;
-		this.#update();
+		this.#render();
 	}
 
 	#setId(_, id) {
@@ -41,7 +41,8 @@ export class TimerComponent extends HTMLElement {
 	}
 
 	#isFailed() {
-		stateToolkit.patchToService(this.id, { isDone: false });
+		const id = this.#id;
+		stateToolkit.patchToService(id, { isDone: false });
 	}
 
 	connectedCallback() {
@@ -75,12 +76,12 @@ export class TimerComponent extends HTMLElement {
 		} else {
 			this.#timerElem.setAttribute('unixtime', this.#deadline !== '' ? '0' : undefined);
 			this.#isFailed();
-			clearInterval(this.timer);
+			clearInterval(this.#timer);
 		}
 	}
 
 	disconnectedCallback() {
-		clearInterval(this.timer);
+		clearInterval(this.#timer);
 	}
 
 	attributeChangedCallback(name, oldValue, newValue) {

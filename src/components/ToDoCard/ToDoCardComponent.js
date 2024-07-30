@@ -1,5 +1,5 @@
 import { stateToolkit } from '../../services/stateService.js';
-import { cleanNodes } from '../api/helpers/helpers.js';
+import { addListeners, cleanNodes, select } from '../api/helpers/helpers.js';
 import { getStyles } from './ToDoCard.styles.js';
 
 const toDoCardAttributes = {
@@ -20,16 +20,21 @@ export class ToDoCardComponent extends HTMLElement {
 		return Object.values(toDoCardAttributes);
 	}
 
-	#id;
 	#data = {};
 	#toDoCard;
 	#todoChecked;
 	#input;
 
+	#listeners = [[select.bind(this), 'click', this.#addEventListeners.bind(this)]];
+
 	#ATTRIBUTES_MAPPING = new Map([[toDoCardAttributes.ID, this.#getDataById.bind(this)]]);
 
 	#getDataById(_, ID) {
+		if (!ID) {
+			ID = this.#data.id;
+		}
 		this.#data = stateToolkit.getFromService(ID);
+		console.log(this.#data);
 		this.#setTodoChecked(this.#data.isDone || '');
 		this.#render();
 	}
@@ -46,10 +51,6 @@ export class ToDoCardComponent extends HTMLElement {
 		}
 	}
 
-	#setStateTodoChecked() {
-		this.#input.classList = ['todo_checkbox', this.#todoChecked];
-	}
-
 	connectedCallback() {
 		this.#render();
 
@@ -63,17 +64,25 @@ export class ToDoCardComponent extends HTMLElement {
 
 	#render(data = this.#data) {
 		const templateElem = document.createElement('template');
+		this.#listeners.forEach(addListeners.bind(this));
+		let disabled;
+		let disabledTimer;
+		if (data.isDone !== undefined) {
+			disabledTimer = true;
+			disabled = 'disabled';
+			console.log(disabled);
+		}
 		templateElem.innerHTML = `${getStyles()}
         <div class="todo">
             <label class="todo__checkbox_container">
-                <input type="checkbox" class="todo__checkbox"/>
+                <input type="checkbox" class="todo__checkbox" id="${data.id}" disabled="${disabled}" />
 				<span class="todo__checkmark"></span>
             </label>
             <p class="todo__text ${this.#todoChecked}">${data.text ? data.text.toUpperCase() : null}</p>
             <button class="todo__treshbtn">
             </button>
         </div>
-        <timer-component deadline=${data.deadline ? data.deadline : ''}></timer-component>`;
+        <timer-component id="${data.id}" deadline=${disabledTimer ? '' : data.deadline}></timer-component>`;
 		cleanNodes(this.shadowRoot).appendChild(templateElem.content.cloneNode(true));
 		this.#toDoCard = this.shadowRoot.firstElementChild;
 		this.#input = this.shadowRoot.querySelector('.todo__checkbox');
@@ -91,5 +100,18 @@ export class ToDoCardComponent extends HTMLElement {
 		if (this.#toDoCard) {
 			callback.call(this, this.#toDoCard, value);
 		}
+	}
+
+	#addEventListeners() {
+		if (this.#input.disabled === 'disabled') return;
+		const id = this.#input.id;
+		if (!this.#input.checked) {
+			stateToolkit.patchToService(id, { isDone: !this.#input.checked });
+		} else if (this.#data.isDone !== false) {
+			stateToolkit.patchToService(id, { isDone: undefined });
+		}
+		this.#input.checked = !this.#input.checked;
+
+		this.#getDataById(this, id);
 	}
 }
