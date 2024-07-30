@@ -4,10 +4,10 @@ import { getFromLocalStorage } from '../lib/helpers/getFromLocalStorage.js';
 const startArray = getFromLocalStorage() || [];
 
 let stateMap = new Map();
-if (startArray.length){
-    startArray.forEach(obj => {
-        stateMap.set(obj.id, obj)
-    })
+if (startArray.length) {
+	startArray.forEach((obj) => {
+		stateMap.set(obj.id, obj);
+	});
 }
 
 function stateService(action, toDoItemId, newDataObject){
@@ -87,8 +87,8 @@ stateToolkit.__proto__.deleteFromService = function (toDoItemId) {
 	stateService('DELETE', toDoItemId);
 };
 
-stateToolkit.__proto__.deleteAllFromService = function() {
-    stateService('DELETE_ALL');
+stateToolkit.__proto__.deleteAllFromService = function () {
+	stateService('DELETE_ALL');
 };
 
 window.addEventListener('unload', () => {
