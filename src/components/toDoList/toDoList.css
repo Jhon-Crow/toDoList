@@ -1,4 +1,6 @@
 .to-do-list {
     display: flex;
     flex-direction: column;
+    margin-top: 2rem;
+    padding: 0 30vw;
 }
