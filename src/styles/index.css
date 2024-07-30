@@ -2,8 +2,15 @@
 @import url("./globals/globals.css");
 @import url("./themes/dark.css");
 @import url("./themes/light.css");
+@import url("../components/toDoList/toDoList.css");
+@import url("../components/toDoForm/toDoForm.css");
+@import url("../components/toDoPage/toDoPage.css");
 
 body {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: var(--bg-color);
     font: var(--font-regular);
     color: var(--primary-color);

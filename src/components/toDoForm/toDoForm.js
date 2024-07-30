@@ -10,6 +10,9 @@ class ToDoItem {
 	}
 }
 export class toDoForm extends HTMLElement {
+	static get name() {
+		return 'to-do-form-component';
+	}
 	connectedCallback() {
 		this.render();
 		const button = document.getElementById('addToDoButton');

@@ -15,8 +15,11 @@ export class toDoList extends HTMLElement {
 				this.innerHTML += `<to-do-card-component id="${key}"></to-do-card-component>`;
 			});
 		} else {
-			this.innerHTML += `<div class="empty-light"></div>
+			this.innerHTML += `<div class="to-do-list__empty-wrapper"								>
+								<div class="empty-image"></div>
 								<h1 class="empty-title">Empty...</h1>
+</div>
+
 `;
 		}
 	}

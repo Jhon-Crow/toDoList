@@ -2,7 +2,7 @@
     height: 2rem;
     min-width: 20rem;
     border-radius: .3125rem;
-    border: 1px solid rgb(108 99 255);
+    border: 1px solid var(--outline-color);
     caret-color: rgb(108 99 255);
     color: rgb(108 99 255);
     font: var(--font-input);
@@ -10,7 +10,7 @@
 }
 
 .input::placeholder {
-    color: rgb(108 99 255 / 47%);
+    color: var(--placeholder-color);
     font: var(--font-input);
 }
 
