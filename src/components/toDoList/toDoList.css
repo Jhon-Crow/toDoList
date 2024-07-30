@@ -1,0 +1,26 @@
+.to-do-list {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2rem;
+    padding: 0 30vw;
+}
+
+.empty-image {
+    margin-top: 4rem;
+    height: 10.875rem;
+    width: 13.8125rem;
+    background-image: var(--empty-list-image);
+    background-repeat: no-repeat;
+    background-size: 13.8125rem 10.875rem;
+}
+
+.empty-title {
+    font: var(--font-medium);
+}
+
+.to-do-list__empty-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .6rem;
+}
