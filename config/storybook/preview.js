@@ -1,4 +1,9 @@
-/** @type { import('@storybook/web-components').Preview } */
+import { TimeFormattedComponent } from '../../src/components/TimeFormatted/TimeFormattedComponent.js';
+import { TimerComponent } from '../../src/components/Timer/TimerComponent.js';
+import { ToDoCardComponent } from '../../src/components/ToDoCard/ToDoCardComponent.js';
+import { styleDecorator } from '../../src/lib/storybook/styleDecorator/styleDecorator.js';
+import { stateDecorator } from '../../src/lib/storybook/stateDecorator/stateDecorator.js';
+
 const preview = {
 	parameters: {
 		controls: {
@@ -8,6 +13,19 @@ const preview = {
 			},
 		},
 	},
+	decorators: [
+		styleDecorator,
+		stateDecorator(),
+	]
 };
 
+[
+	TimeFormattedComponent,
+	TimerComponent,
+	ToDoCardComponent,
+].map((component) => {
+	customElements.define(component.name, component)
+})
+
 export default preview;
+
