@@ -1,0 +1,28 @@
+.input {
+    border-radius: .3125rem;
+    border: 1px solid rgb(108 99 255);
+    caret-color: rgb(108 99 255);
+    color: rgb(108 99 255);
+    font: var(--font-input);
+    padding-left: .6rem;
+}
+
+.input::placeholder {
+    color: rgb(108 99 255 / 47%);
+    font: var(--font-input);
+}
+
+#to-do-data-input::-webkit-calendar-picker-indicator {
+    filter: invert(100%);
+    cursor: pointer;
+}
+
+.button {
+    cursor: pointer;
+    border-radius: .1875rem;
+    border: 1px solid rgb(108 99 255);
+    color: white;
+    background:  rgb(108 99 255);
+    font: var(--font-large);
+    padding: .4rem;
+}
