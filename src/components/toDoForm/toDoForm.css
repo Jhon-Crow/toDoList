@@ -27,7 +27,6 @@
 }
 
 .button {
-    max-width: 10rem;
     height: 2.375rem;
     cursor: pointer;
     border-radius: var(--button-radius);
