@@ -1,6 +1,9 @@
 import { THEME_KEY } from '../../consts/consts.js';
 
-export class ThemeToggle extends HTMLElement {
+export class themeSwitcher extends HTMLElement {
+	static get name() {
+		return 'theme-switcher-component';
+	}
 	constructor() {
 		super();
 		this.attachShadow({ mode: 'open' });
@@ -10,6 +13,7 @@ export class ThemeToggle extends HTMLElement {
                             display: inline-block;
                         }
                         .theme-toggle-button {
+                        	line-height: 0;
                             border-radius: .4rem;
                             cursor: pointer;
                             border: 1px solid var(--accent-color);
@@ -17,19 +21,18 @@ export class ThemeToggle extends HTMLElement {
                             background:  var(--accent-color);
                             font: var(--font-large);
                             padding: .4rem;
-                            box-sizing: content-box;
-                        }
-                        .light-theme-icon {
-                            background-repeat: no-repeat;
-                            background-image: url("../../assets/icons/light-theme-icon.svg");
-                            background-size: 2.375rem;
-                            width: 2.375rem;
                             height: 2.375rem;
+                            width: 2.375rem;
+                        }
+                        .theme-icon {
+                            background-repeat: no-repeat;
+                            background-image: var(--theme-switcher-svg);
+                            background-size: 1.375rem;
+                            background-position: center;
                         }
                         
                     </style>
-                    <button class="theme-toggle-button button theme-button">
-                        <svg class="light-theme-icon"/>
+                    <button class="theme-toggle-button button theme-button theme-icon">
                     </button>
                 `;
 		this.button = this.shadowRoot.querySelector('.theme-toggle-button');
@@ -68,5 +71,3 @@ export class ThemeToggle extends HTMLElement {
 		this.saveTheme();
 	}
 }
-
-customElements.define('theme-toggle', ThemeToggle);

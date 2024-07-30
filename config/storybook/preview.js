@@ -3,6 +3,7 @@ import { TimerComponent } from '../../src/components/Timer/TimerComponent.js';
 import { ToDoCardComponent } from '../../src/components/ToDoCard/ToDoCardComponent.js';
 import { styleDecorator } from '../../src/lib/storybook/styleDecorator/styleDecorator.js';
 import { stateDecorator } from '../../src/lib/storybook/stateDecorator/stateDecorator.js';
+import { themeSwitcher } from '../../src/components/themeSwitcher/themeSwitcher.js';
 
 const preview = {
 	parameters: {
@@ -16,7 +17,7 @@ const preview = {
 	decorators: [styleDecorator, stateDecorator()],
 };
 
-[TimeFormattedComponent, TimerComponent, ToDoCardComponent].map((component) => {
+[TimeFormattedComponent, TimerComponent, ToDoCardComponent, themeSwitcher].map((component) => {
 	customElements.define(component.name, component);
 });
 
