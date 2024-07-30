@@ -1,0 +1,22 @@
+.button {
+    cursor: pointer;
+    border-radius: .1875rem;
+    border: 1px solid rgb(108 99 255);
+    color: white;
+    background:  rgb(108 99 255);
+    font: var(--font-large);
+    padding: .4rem;
+    box-sizing: content-box;
+}
+
+.theme-button {
+    border-radius: .4rem;
+}
+
+.light-theme-icon {
+    background-repeat: no-repeat;
+    background-image: url("../../assets/icons/light-theme-icon.svg");
+    background-size: 2.375rem;
+    width: 2.375rem;
+    height: 2.375rem;
+}
