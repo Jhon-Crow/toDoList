@@ -5,15 +5,22 @@
     padding: 0 30vw;
 }
 
-.empty-light {
+.empty-image {
     margin-top: 4rem;
-    height: 20rem;
-    background-image: url("./../../assets/images/empty-list-light.png");
+    height: 10.875rem;
+    width: 13.8125rem;
+    background-image: var(--empty-list-image);
     background-repeat: no-repeat;
-    background-size: 24rem;
+    background-size: 13.8125rem 10.875rem;
 }
 
 .empty-title {
-    text-align: left;
-    padding-left: 8rem;
+    font: var(--font-medium);
+}
+
+.to-do-list__empty-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .6rem;
 }
