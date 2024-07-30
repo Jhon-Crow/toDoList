@@ -8,7 +8,6 @@ class ToDoItem {
 		this.isDone = isDone;
 	}
 }
-// форма вызывает ререндер пэдж после клика
 export class toDoForm extends HTMLElement {
 	connectedCallback() {
 		this.render();
