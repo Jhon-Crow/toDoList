@@ -20,11 +20,13 @@
 }
 
 .button {
+    height: 2rem;
+    box-sizing: content-box;
     cursor: pointer;
     border-radius: .1875rem;
     border: 1px solid rgb(108 99 255);
     color: white;
     background:  rgb(108 99 255);
-    font: var(--font-large);
-    padding: .4rem;
+    font: var(--font-input);
+    padding: 0 .4rem;
 }

@@ -1,4 +1,5 @@
 .to-do-page__wrapper {
+    padding: .6rem;
     display: flex;
     flex-direction: column;
     align-items: stretch;
