@@ -1,0 +1,5 @@
+@import url('../../../styles/themes/dark.css');
+
+body {
+    background: var(--bg-color);
+}

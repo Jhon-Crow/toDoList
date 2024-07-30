@@ -1,7 +1,7 @@
-import {saveToLocalStorage} from "../helpers/saveToLocalStorage.js";
-import {getFromLocalStorage} from "../helpers/getFromLocalStorage.js";
+import { saveToLocalStorage } from '../lib/helpers/saveToLocalStorage.js';
+import { getFromLocalStorage } from '../lib/helpers/getFromLocalStorage.js';
 
-const startArray = getFromLocalStorage() || []
+const startArray = getFromLocalStorage() || [];
 
 let stateMap = new Map();
 if (startArray.length){
@@ -13,7 +13,7 @@ if (startArray.length){
 function stateService(action, toDoItemId, newDataObject){
     switch (action){
         case 'SET':
-            if (typeof toDoItemId === 'string' && !stateToolkit.getFromService(toDoItemId)){
+            if (typeof toDoItemId === 'string'){
                 stateMap.set(toDoItemId, {...newDataObject, id: toDoItemId})
             } else {
                 console.log('incorrect ID!')
@@ -63,28 +63,28 @@ function stateService(action, toDoItemId, newDataObject){
 
 export const stateToolkit = {};
 
-stateToolkit.__proto__.setToService = function(toDoItemId, newDataObject) {
-    stateService('SET', toDoItemId, newDataObject);
+stateToolkit.__proto__.setToService = function (toDoItemId, newDataObject) {
+	stateService('SET', toDoItemId, newDataObject);
 };
 
-stateToolkit.__proto__.patchToService = function(toDoItemId, newDataObject) {
-    stateService('PATCH', toDoItemId, newDataObject);
+stateToolkit.__proto__.patchToService = function (toDoItemId, newDataObject) {
+	stateService('PATCH', toDoItemId, newDataObject);
 };
 
-stateToolkit.__proto__.getFromService = function(toDoItemId) {
-    return stateService('GET', toDoItemId);
+stateToolkit.__proto__.getFromService = function (toDoItemId) {
+	return stateService('GET', toDoItemId);
 };
 
-stateToolkit.__proto__.getAllFromService = function() {
-    return stateService('GET_ALL');
+stateToolkit.__proto__.getAllFromService = function () {
+	return stateService('GET_ALL');
 };
 
-stateToolkit.__proto__.getAllKeysFromService = function() {
-    return stateService('GET_ALL_KEYS');
+stateToolkit.__proto__.getAllKeysFromService = function () {
+	return stateService('GET_ALL_KEYS');
 };
 
-stateToolkit.__proto__.deleteFromService = function(toDoItemId) {
-    stateService('DELETE', toDoItemId);
+stateToolkit.__proto__.deleteFromService = function (toDoItemId) {
+	stateService('DELETE', toDoItemId);
 };
 
 stateToolkit.__proto__.deleteAllFromService = function() {
@@ -92,8 +92,8 @@ stateToolkit.__proto__.deleteAllFromService = function() {
 };
 
 window.addEventListener('unload', () => {
-    const endArray = Array.from(stateMap.values());
-    if (startArray !== endArray){
-        saveToLocalStorage(endArray)
-    }
-})
+	const endArray = Array.from(stateMap.values());
+	if (startArray !== endArray) {
+		saveToLocalStorage(endArray);
+	}
+});
